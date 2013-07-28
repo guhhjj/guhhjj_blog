@@ -1,0 +1,33 @@
+<div class="post">
+   
+        <div class="title">
+        	<h2><%= link_to blog  do %><%=blog.title%><% end %></h2>
+        </div>
+        <hr>
+        
+        <div class="entry">
+          <%= truncate(blog.content,:length=>400).gsub(/<.*?>/,'') %>
+        </div>
+        <hr>
+        <div class="post-meta ">
+          <span class="">
+          <i class="icon-tag"></i>&nbsp;<%= link_to blog_path(blog)+"#comments"  do %>
+          <% if blog.category != nil %>
+          <%= link_to :controller => "main", :action => "index" , :category_id => blog.category.id do %><small><%=blog.category.name%></small><%end %>
+          <%end%>
+          <% end %>
+          </span>
+          <span class="">
+          <i class="icon-time"></i>&nbsp;<small><%=blog.created_at.strftime('%Y-%m-%d')%>发表</small>
+        </span>
+         <span class="">
+          <i class="icon-edit"></i>&nbsp;<small><%=blog.created_at.strftime('%Y-%m-%d')%>更新 </small>
+        </span>
+          <span class="">
+        	<i class="icon-comment"></i>&nbsp;<%= link_to blog_path(blog)+"#comments"  do %>
+          <small><%=blog.comments.count%></small>
+          <% end %>
+          </span>
+        </div>
+</div>
+

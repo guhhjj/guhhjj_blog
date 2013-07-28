@@ -2,10 +2,9 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
-
+    @blogs = Blog.paginate page: params[:page], order: 'created_at desc', per_page: 15
     respond_to do |format|
-      format.html # index.html.erb
+      format.html 
       format.json { render json: @blogs }
     end
   end
@@ -25,7 +24,8 @@ class BlogsController < ApplicationController
   # GET /blogs/new.json
   def new
     @blog = Blog.new
-
+    @categories = Category.find(:all)  
+    # @selected_category = @categories[1] 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @blog }
@@ -35,6 +35,8 @@ class BlogsController < ApplicationController
   # GET /blogs/1/edit
   def edit
     @blog = Blog.find(params[:id])
+    @categories = Category.find(:all)  
+    # @selected_category = @categories[1] 
   end
 
   # POST /blogs
@@ -42,9 +44,11 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(params[:blog])
 
+ 
     respond_to do |format|
       if @blog.save
-        format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
+        flash[:notice] = "created a blog successfully"
+        format.html { redirect_to :action => :index, :id=>"today" }
         format.json { render json: @blog, status: :created, location: @blog }
       else
         format.html { render action: "new" }
@@ -80,4 +84,5 @@ class BlogsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 end

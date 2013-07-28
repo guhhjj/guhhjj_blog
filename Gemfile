@@ -1,5 +1,4 @@
 source 'http://ruby.taobao.org'
-
 gem 'rails', '3.2.12'
 
 # Bundle edge Rails instead:
@@ -18,10 +17,21 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+
 end
 
 gem 'jquery-rails'
 
+gem 'will_paginate', '~> 3.0'
+
+gem 'redcarpet'
+# gem 'albino'
+# gem 'nokogiri'
+gem 'coderay'
+gem "pygments.rb", '~> 0.2.13'  
+gem 'twitter-bootstrap-rails'
+gem 'less-rails'
+gem "will_paginate-bootstrap"
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

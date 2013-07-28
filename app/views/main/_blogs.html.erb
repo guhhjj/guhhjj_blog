@@ -1,0 +1,9 @@
+<% if @category_flag == '1' %>
+ <div>
+	  	 <h3>分类:<%=@blogs.first.category.name%></h3>
+ </div>
+ <% end %>
+<%= render @blogs%>
+<div> 
+  <%= will_paginate @blogs, renderer: BootstrapPagination::Rails,:previous_label=> '上一页',:next_label=> '下一页' %>
+</div>  

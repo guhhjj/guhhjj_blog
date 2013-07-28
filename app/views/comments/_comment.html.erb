@@ -1,0 +1,12 @@
+
+
+<li class="clearfix" >
+  <div class="user_img">user_img</div>
+  <div class="cot_con">
+ 	<div class="info">
+      <span class="user_name"><%= comment.commenter %></span>
+      <span class="time"><%= comment.created_at.strftime('%Y-%m-%d')%></span>
+    </div>
+    <div class="comment_content"><p><%= comment.body %></p></div>
+  </div>
+</li>
