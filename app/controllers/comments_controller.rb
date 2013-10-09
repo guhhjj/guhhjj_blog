@@ -1,18 +1,28 @@
 class CommentsController < ApplicationController
+	before_filter :find_blog
 
 	def create
-		@blog = Blog.find(params[:blog_id])
+		#params[:comment][:blog_id] = params[:blog_id]
 		@comment = @blog.comments.create(params[:comment])
-		redirect_to blog_path(@blog)
+		respond_to do |format|
+			format.html { redirect_to(@comment) }
+			format.js
+		end
 	end
 	def destroy
-		@blog = Blog.find(params[:blog_id])
 		@comment = @blog.comments.find(params[:id])
 		@comment.destroy
 		redirect_to blog_path(@blog)
 	end
 
 	def index
-		@blog = Blog.find(params[:blog_id])
+		@blog 
 	end
+
+	protected
+
+	def find_blog
+	  	@blog = Blog.find( params[:blog_id] )
+	end
+
 end

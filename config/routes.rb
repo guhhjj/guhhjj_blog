@@ -1,15 +1,24 @@
 GuhhjjBlog::Application.routes.draw do
+  root :to => 'main#index', as: 'home'
+
+
   resources :categories
 
+  resources :comments
+  resources :blogs
 
-  resources :blogs do
-  	resources :comments
-   end
+  namespace :admin do
+    resources :blogs
+  end
+  
    controller :sessions do
      get 'login' => :new
      post 'login' => :create
      delete 'logout' => :destroy
     end
-   root :to => 'main#index', as: 'home'
-   match "/admin", to: "main#admin"
+  
+   #match "/admin", to: "main#admin"
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
 end

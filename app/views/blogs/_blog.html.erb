@@ -24,8 +24,8 @@
           <i class="icon-edit"></i>&nbsp;<small><%=blog.created_at.strftime('%Y-%m-%d')%>更新 </small>
         </span>
           <span class="">
-        	<i class="icon-comment"></i>&nbsp;<%= link_to blog_path(blog)+"#comments"  do %>
-          <small><%=blog.comments.count%></small>
+        	<i class="icon-comment"></i>&nbsp;<%= link_to blog_path(blog)+"#comment_list"  do %>
+          <small><%=blog.comments_count%></small>
           <% end %>
           </span>
         </div>

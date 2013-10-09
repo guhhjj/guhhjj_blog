@@ -12,13 +12,17 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require jquery.validate
 //= require twitter/bootstrap
 //= require_tree .
 $(function(){
 	$(".pagination a").click(function(){
-		alert("sdfdsf");
 		$(".pagination").html("loading....");
 		$.get(this.href,null,null,"script");
 		return false;
 	});
+     
+    $('#commentForm').validate();
 });
+

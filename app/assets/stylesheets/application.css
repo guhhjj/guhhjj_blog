@@ -6,9 +6,10 @@
  *= require_tree .
 */
 
+
 .box {
 	margin: 10px 0;
-	border-color: black #BBBBBB #BBBBBB;
+	border-color:  #BBBBBB;
 	border-style: solid;
 	border-width: 1px;
 	border-radius: 3px;
@@ -61,20 +62,42 @@ body .hero-unit {
 	color: white;
 }
 
-.CodeRay {     
-font-family: 'Courier New', 'Terminal', monospace;     
-padding: 3px 5px;     
-overflow: auto;     
-font-size: 12px;     
-margin: 12px 0;     
-}     
+
 .CodeRay pre {     
-margin: 0px;     
-padding: 0px;     
+	margin: 10px;     
+	padding: 10px;     
 }     
   
-code{
-border: 1px solid #eaeaea;
-background-color: #f8f8f8;
-border-radius: 3px;
+.comments {
+	background: white;
 }
+.comments li{
+	list-style: none;
+}
+
+#author {
+	float: left;
+	width: 81px;
+	text-align: center;
+	border: 1px solid black;
+	padding: 10px ;
+	margin-top:15px;
+}
+
+
+ #cot_con {
+	background: #EDEFF0;
+	float: left;
+	padding: 10px 15px 0;
+	margin-top:15px;
+}
+
+
+.new_comment{
+	margin-top:50px;
+}
+
+.post a:hover{
+	text-decoration:none;
+	color:#ffa366;
+}  

@@ -1,26 +1,19 @@
-<%= form_for @comment, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :commenter, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :commenter, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :body, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :body, :class => 'text_area' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :blog_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :blog_id, :class => 'number_field' %>
-    </div>
+<%= form_for Comment.new, :remote => true, :html => { :class => 'form-vertical',:id => 'commentForm' } do |f| %>
+   <input type="hidden" name="blog_id" value=<%=@blog.id%> ></input>
+   <div class="controls">
+      <%= f.text_field :commenter,:class => 'span3 required',:minlength=>"20" %>邮箱(必填)
+   </div>
+  
+
+   <div class="controls">
+      <%= f.text_field :nickname, :class => 'span3 required' %>昵称(必填)
+   </div>
+     
+   <div class="controls">
+      <%= f.text_area :body, rows: 3,:class => 'span9' %>
   </div>
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                comments_path, :class => 'btn' %>
+  <div class="controls">
+    <%= f.submit '提交评论', :class => 'btn btn-primary' %>
   </div>
 <% end %>

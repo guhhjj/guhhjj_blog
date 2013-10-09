@@ -1,1 +1,7 @@
-$("#paginated_blogs").html("<%= escape_javascript(render('blogs'))%>")
+$("#paginated_blogs").html("<%= escape_javascript(render(:partial => 'blogs'))%>");
+$(".pagination a").bind("click",function(){
+		$(".pagination").html("loading....");
+		$.get(this.href,null,null,"script");
+		return false;
+	});
+

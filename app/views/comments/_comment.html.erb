@@ -1,12 +1,14 @@
-
-
-<li class="clearfix" >
-  <div class="user_img">user_img</div>
-  <div class="cot_con">
+<div id='comment_<%= comment.id %>' class="row">
+<li>
+  <div class="span1" id="author">
+  	<div class="pic"><img alt="" src="http://1.gravatar.com/avatar/1b38255934c560b9df04eee72246ac09?s=32&amp;d=&amp;r=G" class="avatar avatar-32 photo" height="32" width="32">		</div>
+  	<div class="name"><%= comment.nickname %></div>
+  </div>
+  <div class="span7" id="cot_con">
  	<div class="info">
-      <span class="user_name"><%= comment.commenter %></span>
       <span class="time"><%= comment.created_at.strftime('%Y-%m-%d')%></span>
     </div>
     <div class="comment_content"><p><%= comment.body %></p></div>
   </div>
 </li>
+</div>

@@ -5,8 +5,7 @@ gem 'rails', '3.2.12'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-gem 'therubyracer'
-
+gem 'therubyracer', '~>0.11.0beta1'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -23,6 +22,7 @@ end
 gem 'jquery-rails'
 
 gem 'will_paginate', '~> 3.0'
+#gem 'will_paginate', "3.0.pre2"  #否则和active_admin有冲突
 
 gem 'redcarpet'
 # gem 'albino'
@@ -32,6 +32,8 @@ gem "pygments.rb", '~> 0.2.13'
 gem 'twitter-bootstrap-rails'
 gem 'less-rails'
 gem "will_paginate-bootstrap"
+gem 'activeadmin'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
