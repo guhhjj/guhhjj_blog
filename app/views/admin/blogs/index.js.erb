@@ -1,0 +1,7 @@
+$("#admin-pagination-blogs").html("<%= escape_javascript(render(:partial => 'admin/blogs/admin_blogs'))%>");
+$(".pagination a").bind("click",function(){
+		$(".pagination").html("loading....");
+		$.get(this.href,null,null,"script");
+		return false;
+	});
+

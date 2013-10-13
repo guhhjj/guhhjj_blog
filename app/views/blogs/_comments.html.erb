@@ -1,0 +1,4 @@
+<%= render @comments %>	
+  <div> 
+  <%= will_paginate @comments, renderer: BootstrapPagination::Rails,:previous_label=> '上一页',:next_label=> '下一页' %>
+ </div> 

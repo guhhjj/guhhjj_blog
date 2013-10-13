@@ -1,0 +1,26 @@
+  <%= form_for [:admin,@blog],:html => { :class => 'form-horizontal' } do |f| %>
+    <div class="control-group">
+      <%= f.label :title, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :title, :class => 'text_field span6' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :content, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :content, :class => 'text_area span6' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :category_id, :class => 'control-label span3' %>
+      <div class="controls">
+        <%= f.select :category_id, Category.all.map{ |c| [c.name, c.id] } %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  admin_blogs_path, :class => 'btn' %>
+    </div>
+  <% end %>

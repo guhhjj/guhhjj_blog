@@ -1,0 +1,7 @@
+$(".comments").html("<%= escape_javascript(render(:partial => 'comments'))%>");
+$(".pagination a").bind("click",function(){
+		$(".pagination").html("loading....");
+		$.get(this.href,null,null,"script");
+		return false;
+	});
+

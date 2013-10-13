@@ -1,0 +1,4 @@
+  $('.comments').prepend('<%= escape_javascript(render @comment) %>');
+  $('.new_comment textarea').val("");
+  $('#<%= dom_id(@comment) %>').effect("highlight",3000);
+  $('#comment_count').text(parseInt($('#comment_count').text())+1);
